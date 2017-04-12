@@ -1,0 +1,16 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1606">
+<h3>join</h3>
+<p>Подумай, в каком месте и для какого объекта нужно вызвать метод <mark>join</mark>, чтобы результат выводился по-порядку<br />
+сначала для <mark class="green">firstThread</mark>, а потом для <mark class="green">secondThread</mark>.<br />
+Вызови метод join в нужном месте.</p>
+<p><strong>Пример вывода:</strong><br />
+<code>firstThread : String 1<br />
+firstThread : String 2<br />
+...<br />
+firstThread : String 19<br />
+firstThread : String 20<br />
+secondThread : String 1<br />
+...<br />
+secondThread : String 20</code></p>
+
+</div>

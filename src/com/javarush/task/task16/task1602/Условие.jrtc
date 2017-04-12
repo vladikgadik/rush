@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1602">
+<h3>My second thread</h3>
+<p>1. Создать <span class="text-corporate"><strong>public static класс TestThread</strong></span>, унаследованный от класса <span class="text-corporate"><strong>Thread</strong></span>.<br />
+2. Создать статик блок внутри <span class="text-corporate"><strong>TestThread</strong></span>, который выводит в консоль &#171;<em><strong>it&#8217;s a static block inside TestThread</strong></em>&#171;.<br />
+3. Метод <mark>run</mark> должен выводить в консоль &#171;<em><strong>it&#8217;s a run method</strong></em>&#171;.</p>
+
+</div>

@@ -1,0 +1,6 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1601">
+<h3>My first thread</h3>
+<p>Создать <span class="text-corporate"><strong>public static class TestThread</strong></span> &#8212; нить с интерфейсом <mark class="red">Runnable</mark>.<br />
+<span class="text-corporate"><strong>TestThread</strong></span> должен выводить в консоль &#171;<em><strong>My first thread</strong></em>&#171;.</p>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1605">
+<h3>Поговорим о музыке?</h3>
+<p>1. Измени класс <span class="text-corporate"><strong>Violin</strong></span> так, чтоб он стал таском для нити. Используй интерфейс <mark class="red">MusicalInstrument</mark><br />
+2. Реализуй необходимый метод в нити <strong><span class="text-corporate">Violin</span></strong>. Реализация должна быть следующей:<br />
+2.1. Считай время начала игры &#8212; метод <mark>startPlaying()</mark>.<br />
+2.2. Подожди <span class="text-user"><strong>1</strong></span> секунду &#8212; метод <mark>sleepNSeconds(int <strong>n</strong>)</mark>, где <mark class="user">n</mark> &#8212; количество секунд.<br />
+2.3. Считай время окончания игры &#8212; метод <mark>stopPlaying()</mark>.<br />
+2.4. Выведи на консоль продолжительность игры в миллисекундах.</p>
+<p><strong>Пример</strong> &#171;<em><strong>Playing 1002 ms</strong></em>&#171;.</p>
+
+</div>

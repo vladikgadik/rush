@@ -1,0 +1,5 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1603">
+<h3>Список и нити</h3>
+<p>В методе <mark>main</mark> добавить в статический объект <mark class="green">list</mark> <strong><span class="text-user">5</span></strong> нитей. Каждая нить должна быть новым объектом класса <span class="text-corporate"><strong>Thread</strong></span>, работающим со своим объектом класса <span class="text-corporate"><strong>SpecialThread</strong></span>.</p>
+
+</div>

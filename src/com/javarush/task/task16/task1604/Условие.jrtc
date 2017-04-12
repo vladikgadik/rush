@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task16.task1604">
+<h3>Вывод стек-трейса</h3>
+<p>1. Создать таск (<span class="text-corporate"><strong>public static класс SpecialThread</strong></span>, <em>который реализует интерфейс</em> <mark class="red">Runnable</mark>).<br />
+2. <span class="text-corporate"><strong>SpecialThread</strong></span> должен выводить в консоль свой стек-трейс.</p>
+<p><strong>Подсказка:</strong> <mark>main thread</mark> уже выводит в консоль свой стек-трейс.</p>
+
+</div>
