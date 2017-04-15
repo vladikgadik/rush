@@ -24,7 +24,7 @@ public class Solution {
         if (file3.available()>0){
             byte[] buffer = new byte[file3.available()];
             file3.read(buffer);
-            file1.write(buffer,file2.available(),buffer.length);
+            file1.write(buffer);
         }
         file1.close();
         file2.close();
