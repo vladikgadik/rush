@@ -25,9 +25,7 @@ public class Solution {
 
         }
         for (Map.Entry <Integer,Integer> pair : map.entrySet()) {
-            int ch =pair.getKey();
-            char c = (char) ch;
-            System.out.println( c+" "+pair.getValue());
+            System.out.println( (char)pair.getKey().intValue()+" "+pair.getValue());
         }
         inputstream.close();
     }
