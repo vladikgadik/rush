@@ -8,6 +8,14 @@ import java.io.*;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
+        String s =12345+"";
+        byte[] b = s.getBytes();
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0;i<b.length;i++){
+            builder.append((char) b[i]);
+        }
+        System.out.println(builder.toString());
       metod2();
     }
     // obrabotka vseh strok
