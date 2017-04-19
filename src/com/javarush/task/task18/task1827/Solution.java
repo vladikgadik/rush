@@ -10,9 +10,10 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String name = reader.readLine();
+
         if (args.length>0){
             if (args[0].equals("-c")) {
-                crud(args,name);
+               crud(args,name);
             }
         }
     }
@@ -31,8 +32,8 @@ public class Solution {
                 for (int j = 0; j < 8; j++) {
                     value.append((char) file[j + (80 * i)]);
                 }
-                if (maxInd < Integer.parseInt(value.toString())) {
-                    maxInd = Integer.parseInt(value.toString());
+                if (maxInd < Integer.parseInt(value.toString().replace(" ", ""))) {
+                    maxInd = Integer.parseInt(value.toString().replace(" ", ""));
                 }
             }
         }
@@ -42,7 +43,40 @@ public class Solution {
             ind = ind+" ";
             }
         }
-        StringBuilder result = new  StringBuilder(str);
+        byte[] n = args[1].getBytes();
+        byte[] n1 = new byte[60];
+        for (int i = 0;i< 60;i++){
+            if (i<n.length){
+            n1[i]=n[i];
+            }else{
+                n1[i]=' ';
+            }
+        }
+        args[1]= new String(n1);
+
+        byte[] p = args[2].getBytes();
+        byte[] p1 = new byte[8];
+        for (int i = 0;i< 8;i++){
+            if (i<p.length){
+                p1[i]=p[i];
+            }else{
+                p1[i]=' ';
+            }
+        }
+        args[2]=new String(p1);
+
+        byte[] q = args[3].getBytes();
+        byte[] q1 = new byte[4];
+        for (int i = 0;i< 4;i++){
+            if (i<q.length){
+                q1[i]=q[i];
+            }else{
+                q1[i]=' ';
+            }
+        }
+        args[3]=new String(q1);
+
+                StringBuilder result = new  StringBuilder(str);
         result.append(ind).append(args[1]).append(args[2]).append(args[3]);
         FileOutputStream fileOutputStream = new FileOutputStream(name);
         fileOutputStream.write(result.toString().getBytes());
