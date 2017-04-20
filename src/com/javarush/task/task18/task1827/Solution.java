@@ -5,81 +5,30 @@ package com.javarush.task.task18.task1827;
 */
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String name = reader.readLine();
-
-        if (args.length>0){
-            if (args[0].equals("-c")) {
-               crud(args,name);
+        String fileName = reader.readLine();
+        reader.close();
+        BufferedReader fisreader = new BufferedReader(new FileReader(fileName));
+        List<String> listLine  = new ArrayList<>();
+        while (fisreader.ready()) {
+            listLine.add(String.format("%s%n", fisreader.readLine()));
+        }
+        fisreader.close();
+        if (args[0].equals("-c")) {
+            int last = Integer.parseInt(listLine.get(listLine.size()-1).substring(0, 8).trim());
+            if (last < 99999999)
+                last++;
+            listLine.add(String.format("%-8d%-30s%-8s%-4s", last, args[1], args[2], args[3]));
+            BufferedWriter foswriter = new BufferedWriter(new FileWriter(fileName));
+            for (String s : listLine) {
+                foswriter.write(s);
             }
+            foswriter.close();
         }
-    }
-    public static void crud(String[] args,String name) throws IOException {
-        String str="";
-        BufferedReader fileInputStream = new BufferedReader(new FileReader(name));
-        if(fileInputStream.ready()){
-           str=fileInputStream.readLine();
-        }
-        fileInputStream.close();
-        int maxInd=0;
-        if (str.length()>10) {
-            byte[] file = str.getBytes();
-            for (int i = 0; i < file.length / 80; i++) {
-                StringBuilder value = new StringBuilder();
-                for (int j = 0; j < 8; j++) {
-                    value.append((char) file[j + (80 * i)]);
-                }
-                if (maxInd < Integer.parseInt(value.toString().replace(" ", ""))) {
-                    maxInd = Integer.parseInt(value.toString().replace(" ", ""));
-                }
-            }
-        }
-        String ind = String.valueOf(maxInd+1);
-        if (ind.length()<8){
-            for (int i = ind.length();i<8;i++){
-            ind = ind+" ";
-            }
-        }
-        byte[] n = args[1].getBytes();
-        byte[] n1 = new byte[60];
-        for (int i = 0;i< 60;i++){
-            if (i<n.length){
-            n1[i]=n[i];
-            }else{
-                n1[i]=' ';
-            }
-        }
-        args[1]= new String(n1);
-
-        byte[] p = args[2].getBytes();
-        byte[] p1 = new byte[8];
-        for (int i = 0;i< 8;i++){
-            if (i<p.length){
-                p1[i]=p[i];
-            }else{
-                p1[i]=' ';
-            }
-        }
-        args[2]=new String(p1);
-
-        byte[] q = args[3].getBytes();
-        byte[] q1 = new byte[4];
-        for (int i = 0;i< 4;i++){
-            if (i<q.length){
-                q1[i]=q[i];
-            }else{
-                q1[i]=' ';
-            }
-        }
-        args[3]=new String(q1);
-
-                StringBuilder result = new  StringBuilder(str);
-        result.append(ind).append(args[1]).append(args[2]).append(args[3]);
-        FileOutputStream fileOutputStream = new FileOutputStream(name);
-        fileOutputStream.write(result.toString().getBytes());
-        fileOutputStream.close();
     }
 }
