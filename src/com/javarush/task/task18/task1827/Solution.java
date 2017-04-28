@@ -13,6 +13,7 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String fileName = reader.readLine();
         reader.close();
+
         BufferedReader fisreader = new BufferedReader(new FileReader(fileName));
         List<String> listLine  = new ArrayList<>();
         while (fisreader.ready()) {
@@ -20,7 +21,10 @@ public class Solution {
         }
         fisreader.close();
         if (args[0].equals("-c")) {
-            int last = Integer.parseInt(listLine.get(listLine.size()-1).substring(0, 8).trim());
+            int last = 0;
+           if (listLine.size()>0) {
+               last = Integer.parseInt(listLine.get(listLine.size() - 1).substring(0, 8).trim());
+           }
             if (last < 99999999)
                 last++;
             listLine.add(String.format("%-8d%-30s%-8s%-4s", last, args[1], args[2], args[3]));
