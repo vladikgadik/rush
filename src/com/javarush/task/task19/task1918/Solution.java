@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Solution {
 
@@ -30,44 +32,24 @@ public class Solution {
         String teg =args[0];
         List<String> list = new ArrayList<>();
         Map<Integer,Boolean> map = new TreeMap<>();
-        int startSub1;
-        int startSub2;
-        int startSub=0;
-        while (true) {
-          //  проверка откр.тэга
-             startSub1 = str.indexOf("<" + teg + " ",startSub);
-             startSub2 = str.indexOf("<" + teg + ">",startSub);
-            if (startSub1 == startSub2) {
-                startSub = startSub1;
-            } else if (startSub1 < startSub2 && startSub1 >= 0) {
-                startSub = startSub1;
-            } else if (startSub2 >= 0) {
-                startSub = startSub2;
-            } else {
-                startSub = startSub1;
-            }
-            //если конец тэгов
-            if (startSub < 0) {
-                break;
-            }
-            //запись откр.тэгов
-            map.put(startSub,true);
-            //поиск со следующего символа
-            startSub++;
+
+       Pattern patternStart = Pattern.compile("<"+teg+"[\\s>]");
+        Pattern patternStop = Pattern.compile("</"+teg+">");
+        Matcher matcherStart = patternStart.matcher(str);
+        Matcher matcherStop = patternStop.matcher(str);
+
+        while (matcherStart.find()){
+            map.put(matcherStart.start(),true);
         }
-        int end=0;
-        while (true) {
-            end = str.indexOf("/" + teg + ">", end);
-            //если конец тэгов
-            if (end < 0) {
-                break;
-            }
-            end = end + teg.length() + 1;
-            //запись закр.тэгов
-            map.put(end, false);
-            //поиск со следующего символа
-            end++;
+        
+        while (matcherStop.find()){
+            map.put(matcherStop.start()+teg.length()+2,false);
         }
+
+        for (Map.Entry<Integer, Boolean> result : map.entrySet()) {
+            System.out.println(result.getKey()+"  "+result.getValue());
+        }
+
 
         while (!map.isEmpty()) {
             int counterStop = 0;
