@@ -41,7 +41,7 @@ public class Solution {
         while (matcherStart.find()){
             map.put(matcherStart.start(),true);
         }
-        
+
         while (matcherStop.find()){
             map.put(matcherStop.start()+teg.length()+2,false);
         }
