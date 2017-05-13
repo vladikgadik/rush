@@ -45,13 +45,17 @@ public class SolutionTest {
             for (int i=0;i<listData.size();i++){
                 String s = listData.get(i);
                 for (Map.Entry<Integer, String> pair : map.entrySet()){
-                    s = s.replaceAll("[\\s+|^]"+pair.getKey()+"[\\s+|$]"," "+pair.getValue()+" ");
+                    s = s.replaceAll("(^"+pair.getKey()+"\\s)|(\\s"+pair.getKey()+"\\s)|(\\s"+pair.getKey()+"$)"," "+pair.getValue()+" ");//"\\s+"+pair.getKey()+"\\s+"
                 }
 
                 listResult.add(s.trim());
             }
 
             for (int i=0;i<listData.size();i++){
+                System.out.println(listData.get(i));
+            }
+
+            for (int i=0;i<listResult.size();i++){
                 System.out.println(listResult.get(i));
             }
         }

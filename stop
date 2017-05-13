@@ -1,0 +1,161 @@
+[33mcommit d893e2ea2474cd148b84926ea13564418a77a593[m
+Author: vladikgadik <vlad81@i.ua>
+Date:   Sun May 7 22:06:10 2017 +0200
+
+    07.05_4
+
+[1mdiff --git a/src/com/javarush/task/task19/task1926/Solution.java b/src/com/javarush/task/task19/task1926/Solution.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..358805c[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/javarush/task/task19/task1926/Solution.java[m
+[36m@@ -0,0 +1,31 @@[m
+[32m+[m[32mpackage com.javarush.task.task19.task1926;[m
+[32m+[m
+[32m+[m[32m/*[m[41m [m
+[32m+[m[32mПеревертыши[m
+[32m+[m[32m*/[m
+[32m+[m
+[32m+[m[32mimport java.io.BufferedReader;[m
+[32m+[m[32mimport java.io.FileReader;[m
+[32m+[m[32mimport java.io.IOException;[m
+[32m+[m[32mimport java.io.InputStreamReader;[m
+[32m+[m[32mimport java.util.ArrayList;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32mpublic class Solution {[m
+[32m+[m[32m    public static void main(String[] args) throws IOException {[m
+[32m+[m[32m        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));[m
+[32m+[m[32m        String nameFile = reader.readLine();[m
+[32m+[m[32m        reader.close();[m
+[32m+[m[32m        BufferedReader readerFile = new BufferedReader(new FileReader(nameFile));[m
+[32m+[m[32m        List<String> listData = new ArrayList<>();[m
+[32m+[m[32m        while (readerFile.ready()){[m
+[32m+[m[32m            listData.add(readerFile.readLine());[m
+[32m+[m[32m        }[m
+[32m+[m[32m        readerFile.close();[m
+[32m+[m[32m        for (int i=0;i<listData.size();i++){[m
+[32m+[m[32m            StringBuilder stringBuilder = new StringBuilder();[m
+[32m+[m[32m            stringBuilder.append(listData.get(i)).reverse();[m
+[32m+[m[32m            System.out.println(stringBuilder.toString());[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git "a/src/com/javarush/task/task19/task1926/\320\243\321\201\320\273\320\276\320\262\320\270\320\265.jrtc" "b/src/com/javarush/task/task19/task1926/\320\243\321\201\320\273\320\276\320\262\320\270\320\265.jrtc"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..448251c[m
+[1m--- /dev/null[m
+[1m+++ "b/src/com/javarush/task/task19/task1926/\320\243\321\201\320\273\320\276\320\262\320\270\320\265.jrtc"[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32mtaskKey="com.javarush.task.task19.task1926"[m
+[32m+[m
+[32m+[m[32mПеревертыши[m
+[32m+[m
+[32m+[m[32m1 Считать с консоли имя файла. Считать содержимое файла.[m
+[32m+[m[32m2 Для каждой строки в файле:[m
+[32m+[m[32m2.1 переставить все символы в обратном порядке.[m
+[32m+[m[32m2.2 вывести на экран.[m
+[32m+[m[32m3 Закрыть потоки.[m
+[32m+[m
+[32m+[m[32mПример тела входного файла:[m
+[32m+[m[32mя - программист.[m
+[32m+[m[32mАмиго[m
+[32m+[m
+[32m+[m[32mПример результата:[m
+[32m+[m[32m.тсиммаргорп - я[m
+[32m+[m[32mогимА[m
+[32m+[m
+[32m+[m
+[32m+[m[32mТребования:[m
+[32m+[m[32m1.	Программа должна считывать имя файла с консоли (используй BufferedReader).[m
+[32m+[m[32m2.	BufferedReader для считывания данных с консоли должен быть закрыт.[m
+[32m+[m[32m3.	Программа должна считывать содержимое файла (используй FileReader).[m
+[32m+[m[32m4.	Поток чтения из файла (FileReader) должен быть закрыт.[m
+[32m+[m[32m5.	Программа должна выводить в консоль все символы из файла в обратном порядке.[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/src/com/javarush/task/task19/task1927/Solution.java b/src/com/javarush/task/task19/task1927/Solution.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..bdf2dd4[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/javarush/task/task19/task1927/Solution.java[m
+[36m@@ -0,0 +1,41 @@[m
+[32m+[m[32mpackage com.javarush.task.task19.task1927;[m
+[32m+[m
+[32m+[m[32m/*[m[41m [m
+[32m+[m[32mКонтекстная реклама[m
+[32m+[m[32m*/[m
+[32m+[m
+[32m+[m[32mimport java.io.ByteArrayOutputStream;[m
+[32m+[m[32mimport java.io.PrintStream;[m
+[32m+[m
+[32m+[m[32mpublic class Solution {[m
+[32m+[m[32m    public static TestString testString = new TestString();[m
+[32m+[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        PrintStream consoleStream = System.out;[m
+[32m+[m
+[32m+[m[32m        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();[m
+[32m+[m[32m        PrintStream stream = new PrintStream(outputStream);[m
+[32m+[m
+[32m+[m[32m        System.setOut(stream);[m
+[32m+[m[32m        testString.printSomething();[m
+[32m+[m[32m        System.setOut(consoleStream);[m
+[32m+[m[32m        String result = outputStream.toString();[m
+[32m+[m[32m        String[] s = result.split("\n");[m
+[32m+[m[32m        for (int i=0;i<s.length;i++){[m
+[32m+[m[32m            System.out.println(s[i]);[m
+[32m+[m[32m            if ((i%2)>0){[m
+[32m+[m[32m                System.out.println("JavaRush - курсы Java онлайн");[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public static class TestString {[m
+[32m+[m[32m        public void printSomething() {[m
+[32m+[m[32m            System.out.println("first");[m
+[32m+[m[32m            System.out.println("second");[m
+[32m+[m[32m            System.out.println("third");[m
+[32m+[m[32m            System.out.println("fourth");[m
+[32m+[m[32m            System.out.println("fifth");[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git "a/src/com/javarush/task/task19/task1927/\320\243\321\201\320\273\320\276\320\262\320\270\320\265.jrtc" "b/src/com/javarush/task/task19/task1927/\320\243\321\201\320\273\320\276\320\262\320\270\320\265.jrtc"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6090db0[m
+[1m--- /dev/null[m
+[1m+++ "b/src/com/javarush/task/task19/task1927/\320\243\321\201\320\273\320\276\320\262\320\270\320\265.jrtc"[m
+[36m@@ -0,0 +1,32 @@[m
+[32m+[m[32mtaskKey="com.javarush.task.task19.task1927"[m
+[32m+[m
+[32m+[m[32mКонтекстная реклама[m
+[32m+[m
+[32m+[m[32mВ методе main подмени объект System.out написанной тобой реадер-оберткой.[m
+[32m+[m[32mТвоя реадер-обертка должна выводить на консоль контекстную рекламу после каждого второго println-а.[m
+[32m+[m[32mВызови готовый метод printSomething(), воспользуйся testString.[m
+[32m+[m[32mВерни переменной System.out первоначальный поток.[m
+[32m+[m
+[32m+[m[32mРекламный текст: "JavaRush - курсы Java онлайн"[m
+[32m+[m
+[32m+[m[32mПример вывода:[m
+[32m+[m[32mfirst[m
+[32m+[m[32msecond[m
+[32m+[m[32mJavaRush - курсы Java онлайн[m
+[32m+[m[32mthird[m
+[32m+[m[32mfourth[m
+[32m+[m[32mJavaRush - курсы Java онлайн[m
+[32m+[m[32mfifth[m
+[32m+[m
+[32m+[m
+[32m+[m[32mТребования:[m
+[32m+[m[32m1.	Класс Solution должен содержать класс TestString.[m
+[32m+[m[32m2.	Класс Solution должен содержать публичное статическое поле testString типа TestString, которое сразу проинициализировано.[m
+[32m+[m[32m3.	Класс TestString должен содержать публичный void метод printSomething().[m
+[32m+[m[32m4.	Метод printSomething() класса TestString должен выводить на экран строки: "first","second","third","fourth","fifth".[m
+[32m+[m[32m5.	Метод main(String[] args) класса Solution должен создавать поток PrintStream (используй PrintStream c параметром конструктора ByteArrayOutputStream).[m
+[32m+[m[32m6.	Метод main(String[] args) класса Solution должен подменять и восстанавливать поток вывода в консоль объекта System.out.[m
+[32m+[m[32m7.	Метод main(String[] args) класса Solution должен вызывать метод printSomething(),объекта testString.[m
+[32m+[m[32m8.	Метод main(String[] args) класса Solution должен модифицировать строки(вставлять контекстную рекламу) выведенные методом printSomething() согласно заданию, и выводить её в консоль.[m
+[32m+[m
+[32m+[m
