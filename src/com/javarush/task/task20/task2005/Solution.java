@@ -13,7 +13,7 @@ public class Solution {
     public static void main(String[] args) {
         //исправь outputStream/inputStream в соответствии с путем к твоему реальному файлу
         try {
-            File your_file_name = File.createTempFile("your_file_name", null);
+            File your_file_name = File.createTempFile("data_test","task2005",new File("D:/"));
             OutputStream outputStream = new FileOutputStream(your_file_name);
             InputStream inputStream = new FileInputStream(your_file_name);
 
@@ -42,12 +42,12 @@ public class Solution {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return false;
+            if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
 
             Human human = (Human) o;
 
-            if (name == null ? !name.equals(human.name) : human.name != null) return false;
+            if (name != null ? !name.equals(human.name) : human.name != null) return false;
             return assets != null ? assets.equals(human.assets) : human.assets == null;
 
         }
@@ -56,7 +56,7 @@ public class Solution {
         public int hashCode() {
             int result = name != null ? name.hashCode() : 0;
             result = 31 * result + (assets != null ? assets.hashCode() : 0);
-            return (int) (Math.random() * 100);
+            return result;
         }
 
         public Human() {
