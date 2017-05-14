@@ -10,7 +10,7 @@ import java.util.List;
 Externalizable Person
 */
 public class Solution {
-    public static class Person {
+    public static class Person implements Externalizable {
         private String firstName;
         private String lastName;
         private int age;
@@ -23,6 +23,7 @@ public class Solution {
             this.lastName = lastName;
             this.age = age;
         }
+        private Person(){}
 
         public void setMother(Person mother) {
             this.mother = mother;
