@@ -5,8 +5,8 @@ import java.io.*;
 /* 
 Переопределение сериализации
 */
-public class Solution implements {
-    private Thread runner;
+public class Solution implements Runnable,Serializable{
+    transient private Thread runner;
     private int speed;
 
     public Solution(int speed) {
@@ -32,9 +32,12 @@ public class Solution implements {
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
+        runner = new Thread(this);
+        runner.start();
     }
 
     public static void main(String[] args) {
 
     }
+
 }
